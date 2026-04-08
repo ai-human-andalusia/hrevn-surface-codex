@@ -11,9 +11,8 @@
 
 ## Codex alpha API key
 
-```text
-hrevn_codex_alpha_045d71734467b925e6947c3defa7b1be
-```
+Use a dedicated alpha key issued out-of-band for your test environment.
+Do not commit live keys into `.mcp.json`, shell history, or repo docs.
 
 ## Preferred path
 
@@ -35,15 +34,15 @@ that Codex sees.
 
 ```bash
 HREVN_API_BASE_URL=https://api.hrevn.com \
-HREVN_API_KEY=hrevn_codex_alpha_045d71734467b925e6947c3defa7b1be \
+HREVN_API_KEY=replace-with-issued-alpha-key \
 hrevn-mcp-server --version
 
 HREVN_API_BASE_URL=https://api.hrevn.com \
-HREVN_API_KEY=hrevn_codex_alpha_045d71734467b925e6947c3defa7b1be \
+HREVN_API_KEY=replace-with-issued-alpha-key \
 hrevn-mcp-server --list-tools
 
 HREVN_API_BASE_URL=https://api.hrevn.com \
-HREVN_API_KEY=hrevn_codex_alpha_045d71734467b925e6947c3defa7b1be \
+HREVN_API_KEY=replace-with-issued-alpha-key \
 hrevn-mcp-server --self-test
 ```
 
@@ -52,7 +51,7 @@ hrevn-mcp-server --self-test
 The plugin already includes:
 - `./.mcp.json`
 
-Replace the placeholder API key with the alpha key above.
+Replace the placeholder API key with your issued alpha key.
 
 If `hrevn-mcp-server` is not found, run:
 
@@ -75,7 +74,7 @@ with:
 If MCP is not available, the local helper still works:
 
 ```bash
-export HREVN_API_KEY="hrevn_codex_alpha_045d71734467b925e6947c3defa7b1be"
+export HREVN_API_KEY="replace-with-issued-alpha-key"
 python3 scripts/hrevn_managed_api.py baseline-check \
   --input examples/baseline_check_request.json
 ```
