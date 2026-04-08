@@ -1,0 +1,12 @@
+{
+  "name": "hrevn-trust-layer",
+  "version": "0.3.0",
+  "description": "HREVN trust layer for Codex: baseline checks, sign-on-complete workflow, and bundle verification.",
+  "skills": "./skills/",
+  "metadata": {
+    "display_name": "HREVN Trust Layer",
+    "tagline": "Baseline, receipts and verifiable agent evidence.",
+    "status": "beta",
+    "mcp_ready": true
+  }
+}

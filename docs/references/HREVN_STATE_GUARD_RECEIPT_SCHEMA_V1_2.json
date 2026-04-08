@@ -1,0 +1,31 @@
+
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "HREVN State Guard Receipt v1.2",
+  "type": "object",
+  "required": [
+    "output_version",
+    "receipt_id",
+    "run_id",
+    "receipt_type",
+    "agent_identity",
+    "integrity_context",
+    "action_context",
+    "action_outcome",
+    "evidence_hash_sha256",
+    "metadata"
+  ],
+  "properties": {
+    "output_version": {"type": "string"},
+    "receipt_id": {"type": "string"},
+    "run_id": {"type": "string"},
+    "receipt_type": {"type": "string"},
+    "agent_identity": {"type": "object"},
+    "integrity_context": {"type": "object"},
+    "action_context": {"type": "object"},
+    "action_outcome": {"type": "object"},
+    "evidence_hash_sha256": {"type": "string"},
+    "metadata": {"type": "object"}
+  },
+  "additionalProperties": false
+}
