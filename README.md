@@ -7,7 +7,9 @@ Anthropic changes the skill.
 Google changes the middleware.  
 HREVN does not change its truth.
 
-This repo is the Codex-facing HREVN surface: a skills-first plugin bundle with a live bridge to the managed runtime and a public MCP path.
+This repo is the Codex-facing HREVN surface: a skills-first plugin bundle with
+a local helper bridge to the live managed runtime and an optional public MCP
+path.
 
 ## Why HREVN
 
@@ -36,8 +38,8 @@ repeating completed work.
 ## What it is
 - a Codex-facing plugin bundle
 - a skills-first public surface
-- a thin bridge to `https://api.hrevn.com`
-- a real MCP path through `hrevn-mcp-server`
+- a thin helper bridge to `https://api.hrevn.com`
+- an optional MCP path through `hrevn-mcp-server`
 
 ## What it is not yet
 - not a live marketplace listing
@@ -47,6 +49,7 @@ repeating completed work.
 ## Quick Start
 
 ```bash
+export HREVN_API_BASE_URL="https://api.hrevn.com"
 export HREVN_API_KEY="replace-me"
 python3 scripts/hrevn_managed_api.py baseline-check \
   --input examples/baseline_check_request.json
@@ -62,6 +65,17 @@ python3 scripts/hrevn_managed_api.py baseline-check \
 ```
 
 That validates the public runtime bridge before moving on to broader Codex workflow use.
+
+## Alpha runtime path
+
+Current default alpha path:
+
+- Codex skills
+- local helper
+- `https://api.hrevn.com`
+
+This is intentional. MCP is available, but it is not required for the first
+working Codex test.
 
 ## Optional MCP path
 
@@ -93,13 +107,14 @@ The live managed endpoint is:
 
 Current path:
 - skills-first bundle now
-- managed API bridge now
-- MCP available now
+- managed API helper bridge now
+- MCP available as a secondary path
 
 ## Current status
-This is a public Codex plugin candidate with a real runtime bridge and a public
-MCP path. It remains honest about being technical alpha rather than a fully
-packaged marketplace distribution.
+This is a public Codex plugin candidate with a real technical alpha testing
+path. The supported first path is skills plus local helper plus the live
+managed runtime. MCP is available, but it is not the default runtime path in
+this alpha.
 
 ## Rule
 This bundle should not reimplement HREVN semantics locally.

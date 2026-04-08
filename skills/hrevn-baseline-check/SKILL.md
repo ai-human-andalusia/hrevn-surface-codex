@@ -38,8 +38,9 @@ python3 scripts/hrevn_managed_api.py baseline-check \
 Use `https://api.hrevn.com` as the default managed endpoint unless the user has
 configured a different `HREVN_API_BASE_URL`.
 
-If Codex has HREVN MCP configured, prefer the `baseline_check` MCP tool over
-shelling out through the helper script.
+In this alpha, the default supported path is the local helper bridge. If Codex
+also has HREVN MCP configured, the `baseline_check` MCP tool is available as an
+optional secondary path.
 
 ## Canonical references
 - `references/HREVN_BC1_PROFILE_DETECTION_TABLE.md`

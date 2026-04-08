@@ -14,11 +14,46 @@
 Use a dedicated alpha key issued out-of-band for your test environment.
 Do not commit live keys into `.mcp.json`, shell history, or repo docs.
 
-## Preferred path
+## Supported first path
 
-Codex -> HREVN MCP server -> `https://api.hrevn.com`
+Codex skills -> local helper -> `https://api.hrevn.com`
 
-## Install
+## Setup
+
+```bash
+git clone https://github.com/ai-human-andalusia/hrevn-surface-codex
+cd hrevn-surface-codex
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+Then export:
+
+```bash
+export HREVN_API_BASE_URL="https://api.hrevn.com"
+export HREVN_API_KEY="replace-with-issued-alpha-key"
+```
+
+Open Codex from that same repo and same environment.
+
+## First test
+
+```bash
+python3 scripts/hrevn_managed_api.py baseline-check \
+  --input examples/baseline_check_request.json
+```
+
+Expected result:
+- a real `BaselineResult`
+- returned from `https://api.hrevn.com`
+- not a mock and not a textual explanation
+
+## Optional MCP path
+
+If you want to test MCP in parallel, use:
+- `https://github.com/ai-human-andalusia/hrevn-mcp-server`
+
+Then:
 
 ```bash
 git clone https://github.com/ai-human-andalusia/hrevn-mcp-server
@@ -30,7 +65,7 @@ If you install into a virtualenv, launch Codex from that same activated
 environment. Otherwise `hrevn-mcp-server` may not be available in the `PATH`
 that Codex sees.
 
-## Verify MCP first
+Verify MCP before opening Codex:
 
 ```bash
 HREVN_API_BASE_URL=https://api.hrevn.com \
@@ -46,12 +81,10 @@ HREVN_API_KEY=replace-with-issued-alpha-key \
 hrevn-mcp-server --self-test
 ```
 
-## Codex config
-
 The plugin already includes:
 - `./.mcp.json`
 
-Replace the placeholder API key with your issued alpha key.
+Replace the placeholder API key there with your issued alpha key.
 
 If `hrevn-mcp-server` is not found, run:
 
@@ -60,21 +93,3 @@ which hrevn-mcp-server
 ```
 
 and replace the `command` value in `.mcp.json` with that absolute path.
-
-## First test
-
-In Codex, prefer the MCP tool:
-- `baseline_check`
-
-with:
-- `examples/baseline_check_request.json`
-
-## Fallback path
-
-If MCP is not available, the local helper still works:
-
-```bash
-export HREVN_API_KEY="replace-with-issued-alpha-key"
-python3 scripts/hrevn_managed_api.py baseline-check \
-  --input examples/baseline_check_request.json
-```
