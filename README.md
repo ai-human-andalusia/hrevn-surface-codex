@@ -73,6 +73,7 @@ plus the helper script, use:
 See:
 - `docs/mcp/MCP_USAGE.md`
 - `.mcp.json`
+- `docs/CODEX_ALPHA_TESTING.md`
 
 ## Included
 - `.codex-plugin/plugin.json`
