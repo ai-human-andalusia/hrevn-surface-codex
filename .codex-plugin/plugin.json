@@ -1,12 +1,41 @@
 {
-  "name": "hrevn-trust-layer",
-  "version": "0.3.0",
-  "description": "HREVN trust layer for Codex: baseline checks, sign-on-complete workflow, and bundle verification.",
+  "name": "hrevn-surface-codex",
+  "version": "0.4.0",
+  "description": "HREVN Codex plugin for baseline diagnostics, evidence bundles, and resumable workflow integrity.",
+  "author": {
+    "name": "HREVN",
+    "email": "contact@hrevn.com",
+    "url": "https://hrevn.com"
+  },
+  "homepage": "https://hrevn.com",
+  "repository": "https://github.com/ai-human-andalusia/hrevn-surface-codex",
+  "license": "MIT",
+  "keywords": [
+    "codex",
+    "openai",
+    "mcp",
+    "traceability",
+    "auditability",
+    "workflow-integrity"
+  ],
   "skills": "./skills/",
-  "metadata": {
-    "display_name": "HREVN Trust Layer",
-    "tagline": "Baseline, receipts and verifiable agent evidence.",
-    "status": "beta",
-    "mcp_ready": true
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "HREVN Trust Layer",
+    "shortDescription": "Baseline checks, receipts, and resumable agent workflows for Codex.",
+    "longDescription": "Skills-first Codex plugin with a live bridge to the HREVN managed runtime and an MCP path through hrevn-mcp-server.",
+    "developerName": "HREVN",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Write"
+    ],
+    "websiteURL": "https://hrevn.com",
+    "defaultPrompt": [
+      "Run a HREVN baseline check for this workflow.",
+      "Generate a HREVN evidence bundle for this run.",
+      "Verify this HREVN bundle before I continue."
+    ],
+    "brandColor": "#0F766E"
   }
 }

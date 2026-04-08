@@ -1,14 +1,20 @@
 # MCP_READINESS_NOTE.md
 
-This bundle is intentionally skills-first in v0.2.
+This bundle started skills-first and now includes a first concrete MCP path.
+
+## Current state
+- local helper path still works
+- public MCP server now exists
+- `.mcp.json` is now included
+- Codex can move from helper-first to MCP-first testing
 
 ## Rule
-- keep the current Codex bundle simple and reviewable
-- add MCP in the next stable iteration
-- do not force partial MCP config into the bundle before naming and references are fully frozen
+- keep runtime truth in the managed API and HREVN core
+- treat MCP as an interoperability layer, not a second backend
+- prefer MCP tools when Codex has the server configured
 
-## Expected next step
-Add:
-- MCP server/package reference
-- `.mcp.json` or equivalent config when finalized
+## Current next step
+Keep refining:
+- Codex-specific MCP install UX
 - mapping between Codex surface and HREVN canonical receipts
+- later removal of duplicated helper instructions if MCP becomes the default path

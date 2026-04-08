@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "hrevn": {
+      "command": "hrevn-mcp-server",
+      "env": {
+        "HREVN_API_BASE_URL": "https://api.hrevn.com",
+        "HREVN_API_KEY": "replace-me"
+      }
+    }
+  }
+}

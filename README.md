@@ -7,7 +7,7 @@ Anthropic changes the skill.
 Google changes the middleware.  
 HREVN does not change its truth.
 
-This repo is the Codex-facing HREVN surface: a skills-first plugin bundle with a live bridge to the managed runtime.
+This repo is the Codex-facing HREVN surface: a skills-first plugin bundle with a live bridge to the managed runtime and a public MCP path.
 
 ## Why HREVN
 
@@ -37,10 +37,9 @@ repeating completed work.
 - a Codex-facing plugin bundle
 - a skills-first public surface
 - a thin bridge to `https://api.hrevn.com`
-- MCP-ready for a later iteration
+- a real MCP path through `hrevn-mcp-server`
 
 ## What it is not yet
-- not a full MCP server package
 - not a live marketplace listing
 - not the private HREVN runtime
 - not the private commercial toolkit
@@ -64,8 +63,20 @@ python3 scripts/hrevn_managed_api.py baseline-check \
 
 That validates the public runtime bridge before moving on to broader Codex workflow use.
 
+## Optional MCP path
+
+If you want Codex to discover HREVN as MCP tools instead of only through skills
+plus the helper script, use:
+
+- `https://github.com/ai-human-andalusia/hrevn-mcp-server`
+
+See:
+- `docs/mcp/MCP_USAGE.md`
+- `.mcp.json`
+
 ## Included
 - `.codex-plugin/plugin.json`
+- `.mcp.json`
 - `skills/hrevn-baseline-check/SKILL.md`
 - `skills/hrevn-sign-on-complete/SKILL.md`
 - `skills/hrevn-verify-bundle/SKILL.md`
@@ -82,11 +93,12 @@ The live managed endpoint is:
 Current path:
 - skills-first bundle now
 - managed API bridge now
-- MCP later
+- MCP available now
 
 ## Current status
-This is a public Codex bundle candidate with a real runtime bridge.
-It is intentionally ahead on workflow clarity and behind on MCP packaging, by design.
+This is a public Codex plugin candidate with a real runtime bridge and a public
+MCP path. It remains honest about being technical alpha rather than a fully
+packaged marketplace distribution.
 
 ## Rule
 This bundle should not reimplement HREVN semantics locally.
