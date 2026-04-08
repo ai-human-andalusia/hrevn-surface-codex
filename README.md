@@ -51,6 +51,7 @@ repeating completed work.
 ```bash
 export HREVN_API_BASE_URL="https://api.hrevn.com"
 export HREVN_API_KEY="replace-me"
+python3 scripts/hrevn_managed_api.py self-test
 python3 scripts/hrevn_managed_api.py baseline-check \
   --input examples/baseline_check_request.json
 ```
@@ -60,11 +61,19 @@ python3 scripts/hrevn_managed_api.py baseline-check \
 Start with:
 
 ```bash
+python3 scripts/hrevn_managed_api.py self-test
+```
+
+Then run:
+
+```bash
 python3 scripts/hrevn_managed_api.py baseline-check \
   --input examples/baseline_check_request.json
 ```
 
-That validates the public runtime bridge before moving on to broader Codex workflow use.
+The self-test separates setup and auth problems from product issues. The
+baseline check then validates the public runtime bridge before moving on to
+broader Codex workflow use.
 
 ## Alpha runtime path
 

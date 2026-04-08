@@ -31,6 +31,8 @@ def build_parser() -> argparse.ArgumentParser:
 
     subparsers = parser.add_subparsers(dest="command", required=True)
 
+    subparsers.add_parser("self-test", help="Validate environment, auth, and baseline reachability.")
+
     baseline = subparsers.add_parser("baseline-check")
     baseline.add_argument("--input", required=True, help="Path to baseline request JSON.")
 
@@ -81,12 +83,52 @@ def download_bundle(base_url: str, api_key: str, bundle_id: str) -> bytes:
         return response.read()
 
 
+def self_test_payload() -> object:
+    return {
+        "task_type": "ai_workflow",
+        "profile": "eu_readiness_profile",
+        "record": {
+            "human_oversight": {},
+            "risk_register": {},
+            "evidence_lifecycle": {},
+        },
+        "metadata": {
+            "surface": "codex",
+            "source": "self_test",
+        },
+    }
+
+
 def main() -> int:
     parser = build_parser()
     args = parser.parse_args()
     api_key = require_api_key(args.api_key)
 
     try:
+        if args.command == "self-test":
+            result = request_json(
+                args.base_url,
+                api_key,
+                "/v1/baseline-check",
+                self_test_payload(),
+            )
+            print(
+                json.dumps(
+                    {
+                        "self_test": "ok",
+                        "base_url": args.base_url,
+                        "auth": "ok",
+                        "baseline_result": result.get("result"),
+                        "profile_detected": result.get("profile_detected"),
+                        "readiness_level": result.get("readiness_level"),
+                        "check_id": result.get("check_id"),
+                        "checked_at": result.get("checked_at"),
+                    },
+                    indent=2,
+                )
+            )
+            return 0
+
         if args.command == "baseline-check":
             result = request_json(
                 args.base_url,

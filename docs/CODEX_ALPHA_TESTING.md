@@ -36,6 +36,20 @@ export HREVN_API_KEY="replace-with-issued-alpha-key"
 
 Open Codex from that same repo and same environment.
 
+## Preflight
+
+Run this first:
+
+```bash
+python3 scripts/hrevn_managed_api.py self-test
+```
+
+Expected result:
+- `self_test: ok`
+- `auth: ok`
+- a real `check_id`
+- a real `checked_at`
+
 ## First test
 
 ```bash
