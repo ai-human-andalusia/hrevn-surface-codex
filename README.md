@@ -11,6 +11,10 @@ This repo is the Codex-facing HREVN surface: a skills-first plugin bundle with
 a local helper bridge to the live managed runtime and an optional public MCP
 path.
 
+Public package:
+
+- `https://pypi.org/project/hrevn-codex-cli/`
+
 ## Why HREVN
 
 AI agents and multi-step workflows fail in ambiguous ways. When a sequence is
