@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hrevn-codex-cli"
+version = "0.1.0a0"
+description = "HREVN CLI for Codex-facing workflows."
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+authors = [
+  { name = "Miguel Herrero", email = "contact@hrevn.com" }
+]
+keywords = ["hrevn", "codex", "openai", "workflow-integrity", "auditability"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Software Development :: Libraries :: Python Modules"
+]
+
+[project.urls]
+Homepage = "https://hrevn.com"
+Repository = "https://github.com/ai-human-andalusia/hrevn-surface-codex"
+
+[project.scripts]
+hrevn-codex = "hrevn_codex_cli.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]

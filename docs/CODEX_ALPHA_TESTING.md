@@ -21,10 +21,7 @@ Codex skills -> local helper -> `https://api.hrevn.com`
 ## Setup
 
 ```bash
-git clone https://github.com/ai-human-andalusia/hrevn-surface-codex
-cd hrevn-surface-codex
-python3 -m venv .venv
-source .venv/bin/activate
+pipx install hrevn-codex-cli
 ```
 
 Then export:
@@ -41,7 +38,8 @@ Open Codex from that same repo and same environment.
 Run this first:
 
 ```bash
-python3 scripts/hrevn_managed_api.py self-test
+hrevn-codex health-check
+hrevn-codex self-test
 ```
 
 Expected result:
@@ -53,14 +51,21 @@ Expected result:
 ## First test
 
 ```bash
-python3 scripts/hrevn_managed_api.py baseline-check \
-  --input examples/baseline_check_request.json
+hrevn-codex baseline
 ```
 
 Expected result:
 - a real `BaselineResult`
 - returned from `https://api.hrevn.com`
 - not a mock and not a textual explanation
+
+If you want the repo checkout instead, use:
+
+```bash
+git clone https://github.com/ai-human-andalusia/hrevn-surface-codex
+cd hrevn-surface-codex
+pipx install .
+```
 
 ## Optional MCP path
 

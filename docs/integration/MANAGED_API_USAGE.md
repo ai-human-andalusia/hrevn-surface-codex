@@ -58,21 +58,23 @@ curl -s -X POST "https://api.hrevn.com/v1/baseline-check" \
 ## Local helper for Codex
 
 This bundle now includes:
+- installable CLI package `hrevn-codex-cli`
 - `scripts/hrevn_managed_api.py`
 
 Minimal usage:
 
 ```bash
+pipx install hrevn-codex-cli
 export HREVN_API_KEY="replace-me"
-python3 scripts/hrevn_managed_api.py baseline-check \
-  --input examples/baseline_check_request.json
+hrevn-codex health-check
+hrevn-codex self-test
+hrevn-codex baseline
 ```
 
 Generate a bundle:
 
 ```bash
-python3 scripts/hrevn_managed_api.py generate-bundle \
-  --input examples/generate_bundle_request.json
+hrevn-codex generate-bundle --input examples/generate_bundle_request.json
 ```
 
 ## Rule

@@ -49,11 +49,26 @@ repeating completed work.
 ## Quick Start
 
 ```bash
+pipx install hrevn-codex-cli
 export HREVN_API_BASE_URL="https://api.hrevn.com"
 export HREVN_API_KEY="replace-me"
-python3 scripts/hrevn_managed_api.py self-test
-python3 scripts/hrevn_managed_api.py baseline-check \
-  --input examples/baseline_check_request.json
+hrevn-codex health-check
+hrevn-codex self-test
+hrevn-codex baseline
+```
+
+If you want the repo checkout instead, use:
+
+```bash
+git clone https://github.com/ai-human-andalusia/hrevn-surface-codex
+cd hrevn-surface-codex
+pipx install .
+```
+
+If `pipx` is not available, a local fallback is:
+
+```bash
+python3 -m pip install .
 ```
 
 ## Recommended first test
@@ -61,14 +76,13 @@ python3 scripts/hrevn_managed_api.py baseline-check \
 Start with:
 
 ```bash
-python3 scripts/hrevn_managed_api.py self-test
+hrevn-codex self-test
 ```
 
 Then run:
 
 ```bash
-python3 scripts/hrevn_managed_api.py baseline-check \
-  --input examples/baseline_check_request.json
+hrevn-codex baseline
 ```
 
 The self-test separates setup and auth problems from product issues. The
@@ -101,11 +115,13 @@ See:
 ## Included
 - `.codex-plugin/plugin.json`
 - `.mcp.json`
+- `pyproject.toml`
 - `skills/hrevn-baseline-check/SKILL.md`
 - `skills/hrevn-sign-on-complete/SKILL.md`
 - `skills/hrevn-verify-bundle/SKILL.md`
 - `docs/integration/MANAGED_API_USAGE.md`
 - `scripts/hrevn_managed_api.py`
+- `src/hrevn_codex_cli/...`
 - `examples/*.json`
 - `docs/references/*`
 - `docs/mcp/MCP_READINESS_NOTE.md`
